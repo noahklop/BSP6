@@ -1,0 +1,5 @@
+build
+venv
+Modules
+**/__pycache__/
+.vsc

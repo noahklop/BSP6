@@ -1,0 +1,38 @@
+#Path to the directory where we can find the assignment
+directory:
+#directory: /Users/ABC/Downloads
+
+#Name of the assignment (zip file or directory)
+name:
+#name: BPINFOR-110-Exercise 2 Display of Population statistics for Luxembourg-114041.zip
+#name: BPINFOR-109-Exercise 5 (graded)-97656.zip
+#name: BPINFOR-109-Exercise 6 (graded) A 2D Animation with JavaFX-137133.zip
+#name: Programming1_Midterm1_WS1819
+#name: Programming2Project-2017
+#name: IntroductionToProgramming-Midterm
+#name: DistributedSystemsProject-2018
+#name: DesignPatterns
+#name: MobileComputing_SS1516_1
+#name: MobileComputing_SS1516_3
+#name: MobileComputing_SS1617_5
+
+#Extension of the files to compare
+#Optional
+extensions:
+
+#Algorithms that we will apply to compare the files
+#Optional
+algorithms:
+  Cosine similarity: no
+  Bag distance: no
+  Jaccard index: no
+  Sørensen–Dice coefficient: no
+  Tversky index: no
+  Overlap coefficient: no
+  Tanimoto distance: no
+
+#Number of pair of files to display (all to see them all)
+#Optional
+top:
+
+
