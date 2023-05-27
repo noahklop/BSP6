@@ -1,0 +1,70 @@
+[tool.poetry]
+name = "plagiarism-detection"
+version = "0.1.0"
+description = "tool to compare source code files and detect plagiarism"
+authors = ["Noah Klop <noah.klop.001@student.uni.lu>"]
+license = "MIT License"
+readme = "README.md"
+packages = [{include = "plagiarism_detection"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+tomli = "^2.0.1"
+pygments = "^2.15.1"
+tqdm = "^4.65.0"
+simple-term-menu = "^1.6.1"
+openpyxl = "^3.1.2"
+
+[tool.poetry.scripts]
+tool = "plagiarism_detection.main:run"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[settings]
+# ------ Input Settings ------
+[settings.file_handling]
+# root_folder = "/Users/noahk/Documents/Uni.lu/Semester_6/BSP6/BSP6-plagiarism/test_files/Example-Input"
+root_folder = "/Users/noahk/Documents/Uni.lu/Semester_6/BSP6/plagiarism-detection/java_files"
+extensions = [".java"]
+# creates a copy of the root folder and works with the copy
+# HIGHLY RECOMMENDED as files and directories will be manipulated
+create_folder_copy = true     # Still necessary because zip files are unpacked
+# zip files are deleted after files are extracted
+delete_zip = true
+# ignore files whose names contain one of the following substrings
+ignore_files = []
+
+# ------ Pre-processing ------
+[settings.pre_processing]
+# Obsolete code to remove from the source code files
+# Example: '@Override\s+public\s+String\s+toString\(\)\s+{\s+return\s+.*;\s+}'
+obsolete_code = ['@Override\s+public\s+String\s+toString\(\)\s+{\s+return\s+.*;\s+}',
+                'public\s+static\s+void\s+main\s*\(\s*String\s*\[\s*\]\s*args\s*\)']
+# import statements are ignored
+ignore_imports = true
+# multiple spaces and multiple new lines are ignored
+ignore_multi_spaces = true
+# remove code that is present in all files (not yet working)
+ignore_common_code = true
+# ignore all comments
+ignore_comments = false
+
+# ------ Evaluation ------
+[settings.algorithms]
+# Only the first one that is set to true will be used
+N-Gram = false      # can also be set to an integer specifying the N value
+Needleman-Wunsch = false
+Subsequences = true
+[settings.eval]
+# creates and stores all the results inside a folder called 'results' at the specified location
+save_location = "/Users/noahk/Documents/Uni.lu/Semester_6/BSP6/plagiarism-detection"
+# When set to true, all results will be stored inside a .csv file (inside the 'results' folder)
+create_results_csv = true
+# same thing but creates a .xlsx file
+create_results_excel = true
+# maximum number of results for visualization
+max_results = 15
+# 'type' checks for token same token type, 'value' checks for same token value
+compare_token = 'value'

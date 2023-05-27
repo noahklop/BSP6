@@ -1,0 +1,24 @@
+#Path to the directory where we can find the assignment
+directory = "/Users/pedrojesusruizjimenez/Downloads"
+
+#Name of the assignment (zip file or directory)
+name = ""
+
+#Extension of the files to compare
+#Optional
+extensions = [ "swift", "java", "py", "cs", "c" ]
+
+#Number of pair of files to display (all to see them all)
+#Optional
+top = 5
+
+#Algorithms that we will apply to compare the files
+#Optional
+[algorithms]
+"Cosine similarity" = "yes"
+"Bag distance" = "no"
+"Jaccard index" = "no"
+"Sørensen–Dice coefficient" = "yes"
+"Tversky index" = "no"
+"Overlap coefficient" = "no"
+"Tanimoto distance" = "no"
